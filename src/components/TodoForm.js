@@ -3,12 +3,15 @@ import { render } from '@testing-library/react';
 import React, {useState} from 'react';
 
 function TodoForm(){
-
-    //use state is used to add state in a function component
-const [input, setInput] = useState('')
+//use state is used to add state in a function component
+const [input, setInput] = useState('');
+//Added this function to stop refreshing the page on clicking submit button
+const handleSubmit = e=> {
+    e.preventDefault();
+}
 
 return (
-    <form className='todo-form'>
+    <form className='todo-form' onSubmit={handleSubmit}>
         <input 
             type="text" 
             placeholder = 'Add a todo' 
